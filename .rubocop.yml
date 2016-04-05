@@ -5,8 +5,8 @@ AllCops:
   Exclude:
     - db/**/*
     - bin/**
-    - shop/bin/**
-    - shop/db/**/*
+    - lama/bin/**
+    - lama/db/**/*
 
 Rails:
   Enabled: true
