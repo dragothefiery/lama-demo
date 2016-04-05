@@ -1,0 +1,12 @@
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - bin/**
+    - shop/bin/**
+    - shop/db/**/*
+
+Rails:
+  Enabled: true
