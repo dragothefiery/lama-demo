@@ -6,5 +6,14 @@ class ApplicationController < ActionController::Base
 
   def index
 
+    puts cart.inspect
+    product = Lama::Product.first
+    # add_product_to_cart(product)
+    section = Lama::Section.first
+    product = Lama::Product.create(section: section)
+    products = Lama::Product.all
+    render json: :no_content
   end
+
+
 end
