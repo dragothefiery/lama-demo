@@ -1,0 +1,7 @@
+<div class="row  categoryProduct xsResponse clearfix">
+    <% if @products.present? %>
+        <%= render @products %>
+    <% else %>
+        <p>В выбранной категории нет товаров</p>
+    <% end %>
+</div>

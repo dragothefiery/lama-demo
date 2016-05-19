@@ -1,14 +1,198 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shop</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title><%= @title %></title>
   <%= csrf_meta_tags %>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- styles needed by swiper slider -->
+    <link href="/assets/css/idangerous.swiper.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/css/custom_css.css" rel="stylesheet">
+    <link href="/assets/css/smoothproducts.css" rel="stylesheet">
+    <link href="/css/pager.css" rel="stylesheet">
+    <link href="/assets/css/skin-6.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap-slider.css"/>
+    <script type="text/javascript" src="/assets/js/jquery/jquery-1.10.1.min.js"></script>
+
+    
+</head>
+
+
+<body class="header-version-2">
+
+
+<div class="hidden-xs floating-social-menu">
+	
+</div>
+
+<div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
+<div class="navbar-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6"></div>
+            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
+                <div class="pull-right">
+                    <ul class="userMenu">
+                        <li><a href="<?= SITE_DIR; ?>personal/"><span class="hidden-xs">Здравствуйте, !</span></a></li>
+                        <li><a href="<?= SITE_DIR; ?>personal/"><span class="hidden-xs"> Мой кабинет</span> <i class="glyphicon glyphicon-user hide visible-xs "></i></a></li>
+                        <li><a href="?logout=yes"><span class="hidden-xs"> Выйти </span> <i class="hide visible-xs ">Выйти</i></a></li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#ModalLogin">
+                                <span class="hidden-xs">Войти</span>
+                                <i class="glyphicon glyphicon-log-in hide visible-xs "></i>
+                            </a>
+                        </li>
+                        <li class="hidden-xs"><a href="#" data-toggle="modal" data-target="#ModalSignup" id="register-popup"> Зарегистрироваться </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="w100 brandWrap">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span> <span class="icon-bar"> </span></button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i class="fa fa-shopping-cart colorWhite"> </i> <span class="cartRespons colorWhite"> Корзина <span id="top_cart_total"></span> </span>
+            </button>
+            <a class="navbar-brand " href="/"> <img src="/img/thebaus.png" alt="THE BAUS"> </a>
+
+            <!-- this part for mobile -->
+            <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
+                <div class="input-group">
+                    <button class="btn btn-nobg getFullSearch" type="button"><i class="fa fa-search"> </i></button>
+                </div>
+                <!-- /input-group -->
+
+            </div>
+        </div>
+        <div class="pull-right hidden-xs" >
+            <form action="http://thebaus.ru/search/" method="get" >
+                <input type="text" name="q"  itemprop="query-input" placeholder="Поиск" class="search-input-new" />
+                <div class="search-box2" onclick="$(this).parents('form').submit();">
+                    <div class="input-group">
+                        <button class="btn btn-nobg getFullSearch btn-search-fix" type="button"><i class="fa fa-search"> </i>
+                        </button>
+                    </div>
+                    <input type="submit" style="display: none;"/>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /w100 -->
+
+<div class="w100 menuWrap">
+<div class="container">
+
+<!-- this part is duplicate from cartMenu  keep it for mobile -->
+
+<!--/.navbar-cart-->
+
+<div class="navbar-collapse collapse">
+
+
+
+
+</div>
+
+<div id="top_cart"></div>
+<!--/.nav-collapse -->
+
+</div>
+<!--/.container -->
+
+<div class="search-full text-right">
+    <a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i></a>
+
+    <div class="searchInputBox pull-right">
+        <form action="/search/" method="get">
+        <input type="search" data-searchurl="search?=" name="q" placeholder="Начните писать и нажмите Enter" class="search-input">
+        <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
+        </form>
+    </div>
+</div>
+<!--/.search-full ||  search form here-->
+
+</div>
+<!--/.w100-full-->
+
+</div>
+
+
+<div class="container main-container headerOffset">
 <%= yield %>
+</div>
+
+<div class="gap"></div>
+
+<%= render 'partials/footer' %>
+
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/idangerous.swiper-2.1.min.js"></script>
+
+<!-- include jqueryCycle plugin -->
+<script src="/assets/js/jquery.cycle2.min.js"></script>
+
+<!-- include jquery maskedinput plugin -->
+<script src="/js/jquery.maskedinput.min.js"></script>
+
+<!-- include easing plugin -->
+<script src="/assets/js/jquery.easing.1.3.js"></script>
+
+<!-- include  parallax plugin -->
+<script type="text/javascript" src="/assets/js/jquery.parallax-1.1.js"></script>
+
+<!-- optionally include helper plugins -->
+<script type="text/javascript" src="/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+
+<!-- include mCustomScrollbar plugin //Custom Scrollbar  -->
+
+<script type="text/javascript" src="/assets/js/jquery.mCustomScrollbar.js"></script>
+
+<!-- include checkRadio plugin //Custom check & Radio  -->
+<script type="text/javascript" src="/assets/js/ion-checkRadio/ion.checkRadio.js"></script>
+
+<!-- include grid.js // for equal Div height  -->
+<script src="/assets/js/grids.js"></script>
+
+<!-- include carousel slider plugin  -->
+<script src="/assets/js/owl.carousel.min.js"></script>
+
+<!-- jQuery minimalect // custom select   -->
+<script src="/assets/js/jquery.minimalect.min.js"></script>
+
+<!-- include touchspin.js // touch friendly input spinner component   -->
+<script src="/assets/js/bootstrap.touchspin.js"></script>
+
+<!-- include custom script for only homepage  -->
+
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+<!-- include smoothproducts // product zoom plugin  -->
+
+<!-- include custom script for site  -->
+<script src="/assets/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/js/bootstrap-slider.min.js"></script>
+<script type="text/javascript" src="/js/application.js"></script>
+<script type="text/javascript" src="/js/catalog_element.js"></script>
+
+
 
 </body>
 </html>
