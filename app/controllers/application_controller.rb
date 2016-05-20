@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-
     # puts cart.inspect
     # product = Lama::Product.first
     # # add_product_to_cart(product)
@@ -14,6 +13,4 @@ class ApplicationController < ActionController::Base
     # products = Lama::Product.all
     # render json: :no_content
   end
-
-
 end

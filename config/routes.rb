@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#index'
-  
+
   scope :products, controller: :products do
     get '', to: :index
     get ':section', to: :section
